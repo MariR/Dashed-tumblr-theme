@@ -1,0 +1,326 @@
+	 <doctype! Html>
+
+	 <!-- 
+
+	 	Made By TheVoicelessCoffee
+	 		>> thevoicelesscoffee.tumblr.com
+
+                        +        
+				   +     +	   +
+				  +     +     +  
+				   +     +     + 
+				  +           +
+			|<<<|				|>>>|
+			|<<<|~~~~~~~~~~~~~~~|>>>|
+	 		|<<<|				|>>>|
+	 		|<<<|				|>>>|______
+	 		|<<<| THE			|>>> ____  |
+	 		|<<<| 	VOICELESS	|>>>|	 | |
+	 		|<<<|		 COFFEE	|>>>|	 | |
+	 		|<<<|				|>>>|____| |
+	 		|<<<|				|>>>_______|		
+	 		|<<<|				|>>>|
+	 		|<<<|				|>>>|
+	 		|<<<|_______________|>>>|
+	 		|>>>>>>>>>>>>>>>>>>>>>>>|
+	 		|<<<<<<<<<<<<<<<<<<<<<<<|
+
+		-->
+
+	 <html>
+	 	<head>
+	 		<title>{title}</title>
+
+	 		<!-- META 
+			----------------
+	 		-->
+
+	 		{block:Description}
+	 			<meta name="description" content="{MetaDescription}"/>
+	 		{block:Description}
+
+	 		<meta name="text:GitHub Username" content=""/>
+	 		<meta name="text:Facebook Link" content=""/>
+	 		<meta name="text:Twitter Username" content=""/>
+	 			
+	 		<!--	STYLE
+			------------------
+	 		 -->
+
+	 		<style type="text/css">
+
+	 			.div{border: 1px dashed black;
+	 				border-radius: 5px;
+	 				background-color: white;
+	 				font-family: Arial;
+	 				margin: 5px}
+
+	 				.postsDiv{border: 1px dashed black;
+	 						border-radius: 5px;
+	 						background-color: white;
+	 						font-family: Arial;
+	 						margin: 5px
+	 						width: 700px;}
+
+	 			.post_title{}
+
+	 			.links{color: Black;
+	 					text-decoration: none;}
+
+	 			#div_wapper{margin-left: auto;
+	 						margin-right: auto;
+	 						width:1000px;}
+
+	 			#div_headers{}
+
+	 			#div_head{float: top;
+	 						text-align: center;}	
+
+	 			#div_navigation{float:left;
+	 							width: 200px;}
+
+	 			#div_post{float: right;
+	 						width:750px;}
+
+	 			#div_botton{clear:both;}
+
+	 				#prev_page_div{float:left;}
+
+	 				#next_page_div{float: right;}
+
+	 		</style>
+
+
+	 		<!--	SCRIPT
+			----------------------
+	 		 -->
+
+	 		<script type="text/javascript">
+
+
+	 		</script>
+
+	 	</head>
+
+	 	<!-- BODY 	
+		-------------------
+	 	-->
+
+	 	<body>
+	 	<div class="div" id="div_wapper">
+
+	 		<div class="div" id="div_head">
+	 			
+	 		<h1 id="div_headers">{title}</h6>
+
+	 		</div>
+	
+	 		<!-- 		NAVI 	
+			-------------------------
+	 		-->	
+
+	 			<div class="div" id="div_navigation">
+
+	 				<div class="div" id="portrait_div">
+	 					<img src="{PortraitURL-128}">
+	 				</div>
+
+	 				<div class="div" id="div_description">	
+
+	 					<h4 class="h4">{lang:About me}</h4>
+
+	 					{block:Description}
+	 						<p>{Description}</p>
+	 					{/block:Description}
+	 				</div>
+
+	 				<form action="/search" method="get">
+    				<input type="text" name="q" value="{SearchQuery}"/>
+    				<input type="submit" value="Search"/>
+					</form>
+
+	 				{block:AskEnabled}
+
+	 				<div class="div" id="ask_div">
+	 					<a href="{AskLabel}"> Ask me anything !!!</a>
+	 				</div>
+
+					{/block:AskEnabled}
+
+					{block:IfGitHubUsername}
+					<div class="div" id="github_div">
+						<a href=https://github.com/{Text:GitHub Username}>GITHUB</a>
+					</div>
+	 				{/block:IfGitHubUsername}
+
+	 				{block:IfFacebookLink}
+					<div class="div" id="github_div">
+						<a href={Text:Facebook Link}>FACEBOOK</a>
+					</div>
+	 				{/block:IfFacebookLink}
+
+	 				{block:IfTwitterUsername}
+					<div class="div" id="github_div">
+						<a href=https://twitter.com/{Text:Twitter Username}>TWITTER</a>
+					</div>
+	 				{/block:IfTwitterUsername}
+	 			</div>
+
+
+
+	 			<!--	POSTs 		
+				-------------------
+	 			-->
+
+
+	 			<div class="div" id="div_post">
+
+	 				{block:Posts}
+
+	 				{block:Text}
+	 					<div class="postsDiv" id="p_textpost">
+	 						{block:Title}
+	 							<a class="post_title links" href="{permalink}">{title}</p>
+	 						{block:Title}
+	 					
+	 						{Body}
+
+	 						<div id="post_botton div"> {LikeButton color="grey"} {ReblogButton color="grey"}</div>
+
+	 					</div>
+	 						
+
+	 				{/block:Text}
+
+	 				  {block:Photo}
+                    <div class="postsDiv">
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+                        {block:Caption}
+                            <div>{Caption}</div>
+                        {/block:Caption}
+
+                        <div id="post_botton div"> {LikeButton color="grey"} {ReblogButton color="grey"}</div>
+
+                    </div>
+                	{/block:Photo}
+
+                	{block:Panorama}
+                    <div class="postsDiv">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}
+
+                        {block:Caption}
+                            <div>{Caption}</div>
+                        {/block:Caption}
+                        <div id="post_botton div"> {LikeButton color="grey"} {ReblogButton color="grey"}</div>
+                    </div>
+                	{/block:Panorama}
+
+                	{block:Photoset}
+                    <div class="postsDiv">
+                        {Photoset-500}
+
+                        {block:Caption}
+                            <div >{Caption}</div>
+                        {/block:Caption}
+                        <div id="post_botton div"> {LikeButton color="grey"} {ReblogButton color="grey"}</div>
+                    </div>
+                	{/block:Photoset}
+
+                	{block:Quote}
+                    <div class="postsDiv">
+                        "{Quote}"
+
+                        {block:Source}
+                            <div>{Source}</div>
+                        {/block:Source}
+
+                        <div id="post_botton div"> {LikeButton color="grey"} {ReblogButton color="grey"}</div>
+                       
+                    </div>
+                	{/block:Quote}
+
+                	{block:Link}
+                    <div class="postsDiv">
+                        <a href="{URL}" {Target}>{Name}</a>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </div>
+                	{/block:Link}
+
+                	{block:Chat}
+                    <div class="postsDiv">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="postsDiv">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}
+
+                                    {Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </div>
+                	{/block:Chat}
+
+                	{block:Video}
+                    <div class="postsDiv">
+                        {Video-500}
+
+                        {block:Caption}
+                            <div>{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                	{/block:Video}
+
+                	{block:Audio}
+                    <div class="postsDiv">
+                        {AudioPlayerBlack}
+
+                        {block:Caption}
+                            <div>{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                	{/block:Audio}
+
+
+	 				{/block:Posts}
+	 			
+	 			</p>
+
+	 			</div>
+
+	 		<!-- BOTTON 	
+			----------------
+	 		-->
+
+	 		<div class="div" id="div_botton">
+	 		{block:Pagination}
+
+	 			{block:PreviousPage}
+	 			<div class="div" id="prev_page_div">
+	 				<a href="{PreviousPage}">Previous Page</a>
+	 			</div>
+				{/block:PreviousPage}
+
+				{block:NextPage}
+				<div class="div" id="next_page_div">
+					<a href="{NextPage}">Next Page</a>
+				</div>
+				{/block:NextPage}
+
+			{/block:Pagination}
+
+	 		</div>
+	 		</div>
+	 	</body>
+	 </html>
